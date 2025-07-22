@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '../env.php';
 class DataBase
 {
     private $host = "localhost";
@@ -15,7 +16,7 @@ class DataBase
     private function dbconnection()
     {
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database);
-        
+
         if ($conn->connect_error) {
             die("unable to connect");
         } else {
