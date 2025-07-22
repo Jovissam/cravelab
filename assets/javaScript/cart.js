@@ -4,10 +4,9 @@ function displayCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cartList.innerHTML = "";
 
-if (cart.length === 0) {
-  cartList.innerHTML = `<h3 class="text-center">Your cart is empty</h3>`;
-  
-}
+  if (cart.length === 0) {
+    cartList.innerHTML = `<h3 class="text-center">Your cart is empty</h3>`;
+  }
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   cartLength.textContent = `${totalItems} item`;
@@ -20,29 +19,43 @@ if (cart.length === 0) {
     totalPrice += total;
 
     cartList.innerHTML += `
-                        <div class="cart-item flex"><a href="product-item.php?id=${item.id}">
-                            <img src="assets/images/food/${item.image}" alt=""> </a>
+                        <div class="cart-item flex"><a href="product-item.php?id=${
+                          item.id
+                        }">
+                            <img src="assets/images/food/${
+                              item.image
+                            }" alt=""> </a>
                             <div class="cart-details flex flex-column justify-content-between p-2">
                                 <div class="cart-price flex justify-content-between align-items-center">
-                                    <h3>${item.name}</h3>
+                                    <h3 class="transform-text">${item.name}</h3>
                                     <div class="flex"><p class="pe-2">Total</p><h5><span class="naira">&#8358;</span> ${total.toLocaleString()}</span></h5></div>
                                 </div>
                                 <div class="flex flex-wrap justify-content-between">
-                                    <button onclick="removeItem(${item.id})" class="remove-item border border-dark rounded-2 p-1"><i class="fas fa-trash"></i><span>Remove Item</span></button>
+                                    <button onclick="removeItem(${
+                                      item.id
+                                    })" class="remove-item border border-dark rounded-2 p-1"><i class="fas fa-trash"></i><span>Remove Item</span></button>
                                     <div class="flex align-items-center flex-wrap">
-                                        <p><span>&#8358;</span>${item.price}.00 x</p>
-                                        <div class="modify-cart ms-2 mt-1"><button onclick="updateQuantity(${item.id}, -1)"><i class="fas fa-minus"></i></button> <span>${item.quantity}</span> <button onclick="updateQuantity(${item.id}, 1)" class="naira"><i class="fas fa-plus"></i></button></div>
+                                        <p><span>&#8358;</span>${
+                                          item.price
+                                        }.00 x</p>
+                                        <div class="modify-cart ms-2 mt-1"><button onclick="updateQuantity(${
+                                          item.id
+                                        }, -1)"><i class="fas fa-minus"></i></button> <span>${
+      item.quantity
+    }</span> <button onclick="updateQuantity(${
+      item.id
+    }, 1)" class="naira"><i class="fas fa-plus"></i></button></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
     `;
   });
-  document.getElementById("totalAmount").innerHTML = `<span class="naira">&#8358;</span> ${totalPrice.toLocaleString()}.00`;
+  document.getElementById(
+    "totalAmount"
+  ).innerHTML = `<span class="naira">&#8358;</span> ${totalPrice.toLocaleString()}.00`;
 }
 displayCart();
-
-
 
 function updateQuantity(productId, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -80,12 +93,14 @@ function clearCart() {
 
 function checkOut() {
   const checkoutbtn = document.querySelector("#checkoutBtn");
+  // checkoutbtn.textContent = "Hello world";
 
   let products = JSON.parse(localStorage.getItem("cart")) || [];
-  products.forEach(product => {
-    checkoutbtn.innerHTML  += `<input type="hidden" name="productId[]" value="${product.id}">`
-  });
-  checkoutbtn.innerHTML += "<button type='submit' class='btn color1'>checkout</button>"
 
+  products.forEach((product) => {
+    checkoutbtn.innerHTML += `<input type="text" name="productId[]" value="${product.id}"/>`;
+  });
+  checkoutbtn.innerHTML +=
+    "<button type='submit' class='btn color1'>Checkout</button>";
 }
-checkOut()
+checkOut();

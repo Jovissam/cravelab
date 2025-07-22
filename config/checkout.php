@@ -1,12 +1,18 @@
 <pre>
 <?php
+require_once("../class/products.php");
 $productId = $_POST["productId"];
-print_r($_POST["productId"]);
 
-// $newkey = null;
-foreach ($productId as $key => $value) {
-    $idkey = "$value,";
-    $newkey = rtrim($idkey, ",");
-    echo $idkey;
-    
+
+$values = "(" . implode(',', $productId) . ")";
+
+$product = new Product();
+$total = $product->getPrice($values);
+if ($total) {
+    $total = $total->fetch_assoc();
+    $totalPrice = $total["total"];
+} else {
+    $totalPrice = 0;
 }
+
+echo number_format($totalPrice, 2);
