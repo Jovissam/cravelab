@@ -1,0 +1,16 @@
+/* css for all food backgroung images */
+
+
+
+                /* ice cream */
+.food1{background-image: url(../images/food/food1.jpeg);}
+        /* burger */
+.food2{background-image: url(../images/food/food2.jpeg);}
+            /* french fries */
+.food3{background-image: url(../images/food/food3.jpeg);}
+                /* meat pie */
+.food4{background-image: url(../images/food/food4.jpeg);}
+            /* cake */
+.food5{background-image: url(../images/food/food5.jpeg);}
+                /* rice */
+.food6{background-image: url(../images/food/food6.jpeg);}
