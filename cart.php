@@ -81,9 +81,11 @@ session_start();
                     </div>
                     <!-- checkout button -->
                     <div class="checkout-btn flex justify-content-center mb-3">
-                        
+
                         <?php if (isset($_SESSION["user"])): ?>
-                            <form action="config/checkout.php" method="post" id="checkoutBtn"></form>
+                            <form action="config/checkout.php" method="post">
+                                <div id="checkoutBtn"></div>
+                            </form>
                         <?php else: ?>
                             <button id="checkoutBtn" class="btn color1"><a href="login.php">Checkout</a></button>
                         <?php endif ?>

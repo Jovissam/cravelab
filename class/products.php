@@ -42,14 +42,16 @@ class Product extends Database
         return $this->query($stmt);
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $stmt = "DELETE FROM products WHERE id = $id";
         return $this->query($stmt);
     }
 
-    public function getPrice($id) {
-        $stmt = "DELETE FROM products WHERE id = $id";
-        return $this->query($stmt);
+    public function getPrice($values)
+    {
+        $statement = "SELECT SUM(price) AS total FROM products WHERE id IN $values ";
+        return $this->query($statement);
     }
 }
 
