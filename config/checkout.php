@@ -1,18 +1,19 @@
 <pre>
 <?php
 require_once("../class/products.php");
-$productId = $_POST["productId"];
+// var_dump($_POST);
+// return;
+$ids = array_values($_POST['product']['id']);
+
+$quantities = $_POST['product']['quantity'];
 
 
-$values = "(" . implode(',', $productId) . ")";
 
 $product = new Product();
-$total = $product->getPrice($values);
-if ($total) {
-    $total = $total->fetch_assoc();
-    $totalPrice = $total["total"];
-} else {
-    $totalPrice = 0;
-}
+$total = 0;
+$requested_products = $product->getProducts(implode(",", $ids));
 
-echo number_format($totalPrice, 2);
+while ($row = $requested_products->fetch_assoc()) {
+    $total += $row['price'] * $quantities[$row['id']];
+}
+echo number_format($total, 2);

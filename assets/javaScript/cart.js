@@ -38,19 +38,20 @@ function displayCart() {
                                         <p><span>&#8358;</span>${
                                           item.price
                                         }.00 x</p>
-                                        <div class="modify-cart ms-2 mt-1"><button onclick="updateQuantity(${
+                                        <input type="number" value='1' name='product[quantity][${
                                           item.id
-                                        }, -1)"><i class="fas fa-minus"></i></button> <span>${
-      item.quantity
-    }</span> <button onclick="updateQuantity(${
-      item.id
-    }, 1)" class="naira"><i class="fas fa-plus"></i></button></div>
+                                        }]' class='modify-cart ms-2 mt-1'/>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="product[id][]" value="${
+                          item.id
+                        }"/>
     `;
   });
+  cartList.innerHTML +=
+    "<button class='btn btn-primary' type='submit'>CHECKOUT </button>";
   document.getElementById(
     "totalAmount"
   ).innerHTML = `<span class="naira">&#8358;</span> ${totalPrice.toLocaleString()}.00`;
@@ -91,16 +92,16 @@ function clearCart() {
 
 // check out
 
-function checkOut() {
-  const checkoutbtn = document.querySelector("#checkoutBtn");
-  // checkoutbtn.textContent = "Hello world";
+// function checkOut() {
+//   const checkoutbtn = document.querySelector("#checkoutBtn");
+//   // checkoutbtn.textContent = "Hello world";
 
-  let products = JSON.parse(localStorage.getItem("cart")) || [];
+//   let products = JSON.parse(localStorage.getItem("cart")) || [];
 
-  products.forEach((product) => {
-    checkoutbtn.innerHTML += `<input type="text" name="productId[]" value="${product.id}"/>`;
-  });
-  checkoutbtn.innerHTML +=
-    "<button type='submit' class='btn color1'>Checkout</button>";
-}
-checkOut();
+//   products.forEach((product) => {
+//     checkoutbtn.innerHTML += `<input type="text" name="productId[]" value="${product.id}"/>`;
+//   });
+//   checkoutbtn.innerHTML +=
+//     "<button type='submit' class='btn color1'>Checkout</button>";
+// }
+// checkOut();
