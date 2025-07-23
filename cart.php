@@ -67,9 +67,9 @@ session_start();
                     <p id="cartLength"></p>
                     <!-- cart container -->
 
-                    <div id="cartList" class="cart-container flex flex-column">
+                    <form method="post" action="config/checkout.php" id="cartList" class="cart-container flex flex-column">
                         <!-- dynamic cart items will be inserted here -->
-                    </div>
+                    </form>
 
                     <!-- cart total -->
                     <div class="cart-total flex justify-content-between align-items-center">
@@ -80,7 +80,7 @@ session_start();
                         </div>
                     </div>
                     <!-- checkout button -->
-                    <div class="checkout-btn flex justify-content-center mb-3">
+                    <!-- <div class="checkout-btn flex justify-content-center mb-3">
 
                         <?php if (isset($_SESSION["user"])): ?>
                             <form action="config/checkout.php" method="post">
@@ -90,7 +90,7 @@ session_start();
                             <button id="checkoutBtn" class="btn color1"><a href="login.php">Checkout</a></button>
                         <?php endif ?>
                         <button id="clearCart" class="btn btn-danger ms-2">Clear Cart</button>
-                    </div>
+                    </div> -->
 
 
                 </div>

@@ -53,6 +53,12 @@ class Product extends Database
         $statement = "SELECT SUM(price) AS total FROM products WHERE id IN $values ";
         return $this->query($statement);
     }
+    public function getProducts($values)
+    {
+        $statement = "SELECT * FROM products WHERE id IN ($values)";
+        $query = $this->query($statement);
+        return $query;
+    }
 }
 
 class category extends Database
