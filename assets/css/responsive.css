@@ -1,0 +1,108 @@
+
+
+
+
+
+
+            /* dexktop */
+@media screen and (min-width: 1160px) {
+    .filterToogle{
+        display: none;
+    }
+}
+                /* tablet */
+@media screen and (max-width: 900px) {
+    /* index page */
+    .banner{
+        width: 200px;
+    }
+    .left-title-flip{width: 70%;}
+
+    /* menu page */
+    .filter-sectionLeft{
+        display: none;
+    }
+    .defaultFilter{
+        width: 40%;
+    }
+}
+            /* small tablet */
+@media screen and (max-width: 750px) {
+    /* index page */
+    .display-right{display: none;}
+    .display-left{width: 100%;}
+
+    /* nav */
+    .left-title{
+        position: absolute;
+        flex-direction: column;
+        background-color: #F6F7F8;
+        min-height: 200px;
+        justify-content: space-between;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: none;
+        overflow: hidden;
+    }
+    .navToggleBtn{
+        display: flex;
+        top: 60px;
+        animation:nav-toogle 1s;
+    }
+    #mobile-navToogle{display: inline;}
+
+    .left-title-flip{
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        width: 55%;
+    }
+    .productsSearch{flex-direction: column;}
+    .food-card{
+        width: 220px;
+
+    }
+
+    /* footer */
+    .footer-top{flex-direction: column;}
+    .socials{margin: 10px 0;}
+}
+
+        /* big mobile */
+@media screen and (max-width: 512px) {
+    .min-scr{display: inline;}
+    .nav-cart, .heart{
+        display: none;
+    }
+    .food-card{ 
+    width: 320px;
+    }
+    .left-title-flip{
+        width: 65%;
+    }
+    .review-form{width: 100%;}
+    .review-content{font-size: 10px;}
+    .product-details .food-img{height: 300px;}
+    /* .profile-home p{font-size: 13px;} */
+    .footer-title{display: none;}
+}
+
+/* small mobile */
+@media screen and (max-width: 400px) {
+    .left-title{height: 270px;}
+    .food-card{max-width: 260px;}
+    .cart-item img{
+    max-width: 100px;
+    height: 100px;
+    }
+    .cart-item h3{font-size: 20px;}
+    .f1{font-size: 10px;}
+    .f2{font-size: 13px;}
+}
+        /* bootstrap lg screen */
+@media screen and (max-width: 992px) {
+.form-container{
+    background-image: url(../images/food/food2.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+}
